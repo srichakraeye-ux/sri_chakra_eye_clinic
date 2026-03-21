@@ -1,0 +1,72 @@
+# Netlify Configuration
+# Optimized for production deployment of Sri Chakra Eye Clinic website
+
+[build]
+command = "npm run build:prod && npm run convert:webp"
+publish = "./"
+# Set to main branch for automatic deploys
+branches = ["main"]
+
+[build.environment]
+NODE_VERSION = "20"
+NODE_ENV = "production"
+
+# Cache configuration for optimal performance
+[build.cache]
+[[build.cache.paths]]
+path = "node_modules"
+
+# Headers for performance and security
+[[headers]]
+for = "/*"
+[headers.values]
+# Enable compression
+X-Frame-Options = "SAMEORIGIN"
+X-Content-Type-Options = "nosniff"
+X-XSS-Protection = "1; mode=block"
+Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache headers for static assets
+[[headers]]
+for = "/css/*.css"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/js/*.js"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/pages/images/*"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache for WebP images
+[[headers]]
+for = "/pages/images/*.webp"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+Content-Type = "image/webp"
+
+# Short cache for HTML to allow updates
+[[headers]]
+for = "/*.html"
+[headers.values]
+Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Redirect rules for clean URLs
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+conditions = { Language = ["en"] }
+
+# Enable compression (Netlify handles automatically)
+# Brotli is preferred over gzip when supported
+
+# Preload critical resources
+[[headers]]
+for = "/*.html"
+[headers.values]
+Link = "</css/main.css>; rel=preload; as=style, </pages/images/hero-image.webp>; rel=preload; as=image"
