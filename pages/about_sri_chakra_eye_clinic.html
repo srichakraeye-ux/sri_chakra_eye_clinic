@@ -472,10 +472,10 @@
             </div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
-                <div class="grid md:grid-cols-3 gap-6 text-center">
-                    <div class="glass-panel p-6 rounded-2xl"><div class="stat-number text-4xl font-bold mb-2">10000+</div><p class="text-gray-600">Successful Surgeries</p></div>
-                    <div class="glass-panel p-6 rounded-2xl"><div class="stat-number text-4xl font-bold mb-2">98%</div><p class="text-gray-600">Success Rate</p></div>
-                    <div class="glass-panel p-6 rounded-2xl"><div class="stat-number text-4xl font-bold mb-2">15min</div><p class="text-gray-600">Avg. Surgery Time</p></div>
+                <div class="grid md:grid-cols-3 gap-6 text-center" id="about-stats-grid">
+                    <div class="glass-panel p-6 rounded-2xl"><div class="stat-number text-4xl font-bold mb-2"><span class="stat-number-value" data-target="10000">0</span>+</div><p class="text-gray-600">Successful Surgeries</p></div>
+                    <div class="glass-panel p-6 rounded-2xl"><div class="stat-number text-4xl font-bold mb-2"><span class="stat-number-value" data-target="99">0</span>%</div><p class="text-gray-600">Success Rate</p></div>
+                    <div class="glass-panel p-6 rounded-2xl"><div class="stat-number text-4xl font-bold mb-2"><span class="stat-number-value" data-target="15">0</span>min</div><p class="text-gray-600">Avg. Surgery Time</p></div>
                 </div>
             </div>
         </section>
@@ -488,9 +488,9 @@
                         <span class="text-primary font-semibold tracking-wider uppercase text-sm">Serving the Community</span>
                         <h2 class="font-headline font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 mt-2 mb-4">Free Eye <span class="gradient-text">Camps</span></h2>
                         <p class="text-gray-600 text-lg leading-relaxed mb-6">Committed to reaching the underserved, we conduct free eye camps across Anantapur and surrounding villages. Our mobile team brings quality eye care to those who need it most, conducting screenings, distributing medicines, and performing free surgeries for the economically disadvantaged.</p>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-white p-4 rounded-xl shadow-sm"><div class="text-3xl font-bold text-primary mb-1">1000+</div><p class="text-sm text-gray-600">Patients Served</p></div>
-                            <div class="bg-white p-4 rounded-xl shadow-sm"><div class="text-3xl font-bold text-primary mb-1">50+</div><p class="text-sm text-gray-600">Camps Conducted</p></div>
+                        <div class="grid grid-cols-2 gap-4" id="camp-stats-grid">
+                            <div class="bg-white p-4 rounded-xl shadow-sm"><div class="stat-number text-3xl font-bold text-primary mb-1"><span class="stat-number-value" data-target="1000">0</span>+</div><p class="text-sm text-gray-600">Patients Served</p></div>
+                            <div class="bg-white p-4 rounded-xl shadow-sm"><div class="stat-number text-3xl font-bold text-primary mb-1"><span class="stat-number-value" data-target="50">0</span>+</div><p class="text-sm text-gray-600">Camps Conducted</p></div>
                         </div>
                     </div>
                     <div class="relative">
@@ -708,6 +708,84 @@
                 s.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
                 obs.observe(s);
             });
+
+            // Animate stat numbers
+            function animateCounter(element, target, duration = 1500) {
+                const start = 0;
+                const increment = target / (duration / 16);
+                let current = start;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        element.textContent = target.toLocaleString();
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(current).toLocaleString();
+                    }
+                }, 16);
+            }
+
+            // Stats observer
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                        entry.target.classList.add('animated');
+                        const statNumbers = entry.target.querySelectorAll('.stat-number-value');
+                        statNumbers.forEach((stat, index) => {
+                            const target = parseInt(stat.getAttribute('data-target'));
+                            setTimeout(() => {
+                                animateCounter(stat, target, 1500);
+                            }, index * 150);
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            const statsGrid = document.getElementById('about-stats-grid');
+            if (statsGrid) {
+                statsObserver.observe(statsGrid);
+
+                // Check if stats grid is already in view
+                setTimeout(() => {
+                    const rect = statsGrid.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        if (!statsGrid.classList.contains('animated')) {
+                            statsGrid.classList.add('animated');
+                            const statNumbers = statsGrid.querySelectorAll('.stat-number-value');
+                            statNumbers.forEach((stat, index) => {
+                                const target = parseInt(stat.getAttribute('data-target'));
+                                setTimeout(() => {
+                                    animateCounter(stat, target, 1500);
+                                }, index * 150);
+                            });
+                        }
+                    }
+                }, 100);
+            }
+
+            // Observe camp stats grid
+            const campStatsGrid = document.getElementById('camp-stats-grid');
+            if (campStatsGrid) {
+                statsObserver.observe(campStatsGrid);
+
+                // Check if camp stats grid is already in view
+                setTimeout(() => {
+                    const rect = campStatsGrid.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        if (!campStatsGrid.classList.contains('animated')) {
+                            campStatsGrid.classList.add('animated');
+                            const statNumbers = campStatsGrid.querySelectorAll('.stat-number-value');
+                            statNumbers.forEach((stat, index) => {
+                                const target = parseInt(stat.getAttribute('data-target'));
+                                setTimeout(() => {
+                                    animateCounter(stat, target, 1500);
+                                }, index * 150);
+                            });
+                        }
+                    }
+                }, 100);
+            }
         });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
