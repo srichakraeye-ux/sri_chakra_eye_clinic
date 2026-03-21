@@ -1,0 +1,38 @@
+# Robots.txt for Sri Chakra Eye Clinic
+# This file controls search engine crawler access
+
+User-agent: *
+Allow: /
+Allow: /pages/
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+# Disallow admin and internal pages
+Disallow: /admin/
+Disallow: /pages/patient_management.html
+Disallow: /pages/doctor_dashboard.html
+
+# Allow crawling of robots.txt and sitemap
+Allow: /robots.txt
+Allow: /sitemap.xml
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://srichakraeyeclinic.com/sitemap.xml
