@@ -61,14 +61,14 @@ function minifyCSS() {
 }
 
 // Minify HTML files
-function minifyHTML(cssHash) {
+async function minifyHTML(cssHash) {
   console.log('📦 Minifying HTML...');
 
   const files = fs.readdirSync(PAGES_DIR).filter(f => f.endsWith('.html'));
   let totalOriginal = 0;
   let totalMinified = 0;
 
-  files.forEach(file => {
+  for (const file of files) {
     const filePath = path.join(PAGES_DIR, file);
     let html = fs.readFileSync(filePath, 'utf8');
     const original = html.length;
@@ -78,7 +78,7 @@ function minifyHTML(cssHash) {
       html = html.replace(/(<link[^>]*href=["']css\/main)\.css(["'])/g, `$1.${cssHash}.min.css$2`);
     }
 
-    const minified = minify(html, {
+    const minified = await minify(html, {
       collapseWhitespace: true,
       removeComments: true,
       removeRedundantAttributes: true,
@@ -97,7 +97,7 @@ function minifyHTML(cssHash) {
     totalMinified += minified.length;
 
     console.log(`  ✓ ${file}: ${original} → ${minified.length} bytes (-${Math.round(100 * (1 - minified.length / original))}%)`);
-  });
+  }
 
   console.log(`✅ Total HTML: ${totalOriginal} → ${totalMinified} bytes (-${Math.round(100 * (1 - totalMinified / totalOriginal))}%)`);
 }
@@ -108,7 +108,7 @@ async function build() {
 
   try {
     const cssHash = minifyCSS();
-    minifyHTML(cssHash);
+    await minifyHTML(cssHash);
 
     console.log('\n✨ Production build completed successfully!\n');
     console.log('📊 Summary:');
