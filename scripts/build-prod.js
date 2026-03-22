@@ -12,7 +12,7 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const minify = require('html-minifier').minify;
+const minify = require('html-minifier-terser').minify;
 const CleanCSS = require('clean-css');
 const terser = require('terser');
 
