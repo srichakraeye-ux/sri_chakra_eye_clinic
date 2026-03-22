@@ -121,7 +121,7 @@ npm run convert:webp  # Test image conversion
 ```
 repository/
 ├── pages/
-│   ├── homepage.html
+│   ├── index.html
 │   ├── about_sri_chakra_eye_clinic.html
 │   ├── services_overview.html
 │   └── images/

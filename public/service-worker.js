@@ -9,7 +9,7 @@ const CACHE_NAME = `sri-chakra-clinic-${CACHE_VERSION}`;
 // Assets to cache on install
 const ASSETS_TO_CACHE = [
   '/',
-  '/pages/homepage.html',
+  '/pages/index.html',
   '/pages/about_sri_chakra_eye_clinic.html',
   '/pages/services_overview.html',
   '/css/main.css',

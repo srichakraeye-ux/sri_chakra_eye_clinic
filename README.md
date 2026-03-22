@@ -43,7 +43,7 @@ npm run convert:webp
 ```
 sri-chakra-eye-clinic/
 ├── pages/
-│   ├── homepage.html
+│   ├── index.html
 │   ├── about_sri_chakra_eye_clinic.html
 │   ├── services_overview.html
 │   ├── doctor_dashboard.html (admin)
@@ -106,7 +106,7 @@ Built with Tailwind CSS 3.4+ and includes:
 
 ## 📱 Pages
 
-- **Homepage** (`homepage.html`) - Main landing page with hero, services, about, testimonials
+- **index** (`index.html`) - Main landing page with hero, services, about, testimonials
 - **About** (`about_sri_chakra_eye_clinic.html`) - Clinic information, doctor profile, galleries
 - **Services** (`services_overview.html`) - Complete eye care services and treatments
 - **Doctor Dashboard** (`doctor_dashboard.html`) - Admin panel for staff
