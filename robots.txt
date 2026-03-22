@@ -17,6 +17,9 @@ Disallow: /pages/doctor_dashboard.html
 Allow: /robots.txt
 Allow: /sitemap.xml
 
+# Sitemap location
+Sitemap: https://srichakraeyeclinic.com/sitemap.xml
+
 # Specific rules for Google
 User-agent: Googlebot
 Allow: /
