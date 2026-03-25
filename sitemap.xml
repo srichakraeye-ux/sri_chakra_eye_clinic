@@ -5,25 +5,55 @@
     <!-- Homepage -->
     <url>
         <loc>https://srichakraeyeclinic.com/</loc>
-        <lastmod>2026-03-21</lastmod>
+        <lastmod>2026-03-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://srichakraeyeclinic.com/pages/images/Sri_Chakra_Logo.webp</image:loc>
+            <image:title>Sri Chakra Eye Clinic Logo</image:title>
+            <image:caption>Sri Chakra Eye Clinic - Best Eye Care in Anantapur</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://srichakraeyeclinic.com/pages/images/Sri_Chakra_Logo_square.webp</image:loc>
+            <image:title>Sri Chakra Eye Clinic Square Logo</image:title>
+        </image:image>
     </url>
 
     <!-- About Page -->
     <url>
         <loc>https://srichakraeyeclinic.com/pages/about_sri_chakra_eye_clinic.html</loc>
-        <lastmod>2026-03-21</lastmod>
+        <lastmod>2026-03-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://srichakraeyeclinic.com/pages/images/Doctor_Photo.webp</image:loc>
+            <image:title>Dr. Eswar Sakare - Ophthalmologist at Sri Chakra Eye Clinic</image:title>
+        </image:image>
     </url>
 
     <!-- Services Page -->
     <url>
         <loc>https://srichakraeyeclinic.com/pages/services_overview.html</loc>
-        <lastmod>2026-03-21</lastmod>
+        <lastmod>2026-03-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://srichakraeyeclinic.com/pages/images/Sri_Chakra_services.webp</image:loc>
+            <image:title>Eye Care Services - Sri Chakra Eye Clinic Anantapur</image:title>
+            <image:caption>Comprehensive eye care services including cataract surgery, glaucoma treatment, LASIK and retinal care at Sri Chakra Eye Clinic</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://srichakraeyeclinic.com/pages/images/Cornea.webp</image:loc>
+            <image:title>Cornea Treatment - Sri Chakra Eye Clinic</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://srichakraeyeclinic.com/pages/images/Glaucoma_Management.webp</image:loc>
+            <image:title>Glaucoma Management - Sri Chakra Eye Clinic</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://srichakraeyeclinic.com/pages/images/Retinopathy_Treatment.webp</image:loc>
+            <image:title>Diabetic Retinopathy Treatment - Sri Chakra Eye Clinic</image:title>
+        </image:image>
     </url>
 
     <!-- Note: Internal admin pages (patient_management.html, doctor_dashboard.html) are excluded -->

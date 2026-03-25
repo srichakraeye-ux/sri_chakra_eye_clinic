@@ -1,15 +1,31 @@
 {
-  "short_name": "sri-chakra-eye-clinic",
-  "name": "sri-chakra-eye-clinic",
+  "short_name": "Sri Chakra Eye",
+  "name": "Sri Chakra Eye Clinic",
+  "description": "Best eye care clinic in Anantapur - Cataract, Glaucoma, LASIK and more by Dr. Eswar Sakare",
   "icons": [
     {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "../pages/images/Sri_Chakra_Logo_square.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "../pages/images/Sri_Chakra_Logo_square.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#009688",
+  "background_color": "#f0fdfa",
+  "categories": ["medical", "health"],
+  "lang": "en-IN"
 }

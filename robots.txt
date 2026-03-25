@@ -4,18 +4,15 @@
 User-agent: *
 Allow: /
 Allow: /pages/
-Allow: /images/
+Allow: /pages/images/
 Allow: /css/
 Allow: /js/
+Allow: /public/
 
 # Disallow admin and internal pages
 Disallow: /admin/
 Disallow: /pages/patient_management.html
 Disallow: /pages/doctor_dashboard.html
-
-# Allow crawling of robots.txt and sitemap
-Allow: /robots.txt
-Allow: /sitemap.xml
 
 # Sitemap location
 Sitemap: https://srichakraeyeclinic.com/sitemap.xml
@@ -36,6 +33,3 @@ Disallow: /
 
 User-agent: AhrefsBot
 Disallow: /
-
-# Sitemap location
-Sitemap: https://srichakraeyeclinic.com/sitemap.xml

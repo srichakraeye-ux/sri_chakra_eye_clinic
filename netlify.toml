@@ -69,4 +69,4 @@ conditions = { Language = ["en"] }
 [[headers]]
 for = "/*.html"
 [headers.values]
-Link = "</css/main.css>; rel=preload; as=style, </pages/images/hero-image.webp>; rel=preload; as=image"
+Link = "</css/main.css>; rel=preload; as=style, </pages/images/Eye_Backgrop_Image.png>; rel=preload; as=image"
